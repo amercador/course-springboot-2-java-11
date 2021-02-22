@@ -1,4 +1,4 @@
-package com.educaweb.course.resource;
+package com.educaweb.course.resources;
 
 import java.util.List;
 
@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.educaweb.course.entities.User;
-import com.educaweb.course.services.UserService;
+import com.educaweb.course.entities.Order;
+import com.educaweb.course.services.OrderService;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResources {
+@RequestMapping(value = "/orders")
+public class OrderResource {
 	
 	@Autowired
-	private UserService service;
+	private OrderService service;
 		
 	@GetMapping
-	public ResponseEntity<List<User>> findAll() {
-		List<User> list = service.findAll();
+	public ResponseEntity<List<Order>> findAll() {
+		List<Order> list = service.findAll();
 		return ResponseEntity.ok(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id) {
-		User obj = service.findById(id);
+	public ResponseEntity<Order> findById(@PathVariable Long id) {
+		Order obj = service.findById(id);
 		return ResponseEntity.ok(obj);
 		
 	}
