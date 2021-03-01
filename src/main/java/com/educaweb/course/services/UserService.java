@@ -15,13 +15,20 @@ public class UserService {
 	@Autowired
 	private UserRepository repository;
 	
+	//metodo para buscar todos os usuarios
 	public List<User> findAll() {
 		return repository.findAll();
 	}
-	
+
+	//metodo para buscar o usuário por id
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
 		return obj.get();
+	}
+	
+	//metodo para inserir um usuario
+	public User insert(User obj) {
+		return repository.save(obj);
 	}
 
 }
